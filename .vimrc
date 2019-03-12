@@ -20,18 +20,19 @@ Plugin 'arcticicestudio/nord-vim'
 Plugin 'joshdick/onedark.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'rakr/vim-one'
+Plugin 'faith/molokai'
 
 call vundle#end()
 
 filetype plugin indent on
 
-"let g:Powerline_symbols = 'unicode'
+colorscheme onedark
+let g:Powerline_symbols = 'unicode'
 let g:airline_theme='onedark'
 let g:airline#extensions#tabline#enabled = 1
 
 syntax on
-
-colorscheme onedark
 
 nnoremap ]b :bnext<cr>
 nnoremap [b :bprev<cr>
