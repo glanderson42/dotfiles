@@ -8,7 +8,7 @@ set laststatus=2
 set nocompatible
 set wildmenu
 
-
+set runtimepath+=~/.vim-plugins/LanguageClient-neovim
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -21,13 +21,18 @@ Plugin 'joshdick/onedark.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'rakr/vim-one'
-Plugin 'faith/molokai'
+Plugin 'dracula/vim'
+Plugin 'rhysd/vim-clang-format'
+Plugin 'kana/vim-operator-user'
+"Plugin 'autozimu/LanguageClient-neovim'
+"Plugin 'faith/molokai'
 
 call vundle#end()
 
 filetype plugin indent on
 
-colorscheme onedark
+color dracula
+"colorscheme onedark
 let g:Powerline_symbols = 'unicode'
 let g:airline_theme='onedark'
 let g:airline#extensions#tabline#enabled = 1
