@@ -37,7 +37,6 @@ call vundle#begin()
 
 Plugin 'scrooloose/nerdtree'
 Plugin 'jiangmiao/auto-pairs'
-"Plugin 'Lokaltog/vim-powerline'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'arcticicestudio/nord-vim'
 Plugin 'joshdick/onedark.vim'
@@ -48,8 +47,6 @@ Plugin 'dracula/vim'
 Plugin 'rhysd/vim-clang-format'
 Plugin 'kana/vim-operator-user'
 Plugin 'w0rp/ale'
-"Plugin 'autozimu/LanguageClient-neovim'
-"Plugin 'faith/molokai'
 
 call vundle#end()
 
@@ -63,7 +60,15 @@ let g:airline_theme='dracula'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
-let g:ale_linters = {'cpp': ['clang']}
+let g:ale_linters = {
+\    'cpp': ['clang', 'clangcheck', 'cppcheck'],
+\    'c': ['clang', 'clangcheck', 'cppcheck'],
+\    'python': ['pylint', 'flake8'],
+\    'java': ['checkstyle', 'javac'],
+\    'rust': ['cargo'],
+\    'ruby': ['ruby']
+\    }
+
 let g:ale_completion_enabled = 1
 let g:ale_fix_on_save = 1
 let g:ale_set_balloons = 1
