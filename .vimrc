@@ -47,6 +47,8 @@ Plugin 'dracula/vim'
 Plugin 'rhysd/vim-clang-format'
 Plugin 'kana/vim-operator-user'
 Plugin 'w0rp/ale'
+Plugin 'junegunn/fzf.vim'
+Plugin 'airblade/vim-gitgutter'
 
 call vundle#end()
 
@@ -76,6 +78,9 @@ let g:ale_set_highlights = 1
 let g:airline#extensions#ale#enabled = 1 
 let g:ale_echo_cursor = 1
 
+set statusline=%<%f\ %h%m%r%{kite#statusline()}%=%-14.(%l,%c%V%)\ %P
+set laststatus=2
+
 nnoremap ]b :bnext<cr>
 nnoremap [b :bprev<cr>
 
@@ -87,6 +92,8 @@ nnoremap [t :tabp<cr>
 
 map <C-b> :NERDTreeToggle<CR>
 inoremap jj <Esc>
+
+map <C-h> :ALEDetail<CR>
 
 command! W w
 command! Q q
