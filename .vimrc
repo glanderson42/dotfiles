@@ -32,6 +32,7 @@ set smartcase
 
 set runtimepath+=~/.vim-plugins/LanguageClient-neovim
 set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.fzf
 
 call vundle#begin()
 
