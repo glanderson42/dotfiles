@@ -93,11 +93,14 @@ nnoremap [t :tabp<cr>
 "nnoremap <C-]> :bnext<cr>
 "nnoremap <C-[> :bprev<cr>
 
-map <C-b> :NERDTreeToggle<CR>
+map <C-n> :NERDTreeToggle<CR>
 inoremap jj <Esc>
 
 map <C-h> :ALEDetail<CR>
-map <C-g> :<C-u>call gitblame#echo()<CR>
+map <C-d> :<C-u>call gitblame#echo()<CR>
+map <C-b> :Buffers<CR>
+map <C-f> :Files<CR>
+map <C-g> :GFiles<CR>
 
 command! W w
 command! Q q
