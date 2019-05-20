@@ -32,6 +32,7 @@ set smartcase
 
 set runtimepath+=~/.vim-plugins/LanguageClient-neovim
 set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.fzf
 
 call vundle#begin()
 
@@ -101,6 +102,7 @@ map <C-d> :<C-u>call gitblame#echo()<CR>
 map <C-b> :Buffers<CR>
 map <C-f> :Files<CR>
 map <C-g> :GFiles<CR>
+map <C-c> :ClangFormat<CR>
 
 command! W w
 command! Q q
