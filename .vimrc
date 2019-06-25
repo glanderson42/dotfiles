@@ -3,6 +3,7 @@ filetype off
 syntax on
 
 set number
+set relativenumber
 set cursorline
 set encoding=utf-8
 set autoread
@@ -51,7 +52,9 @@ Plugin 'w0rp/ale'
 Plugin 'junegunn/fzf.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-endwise'
 Plugin 'zivyangll/git-blame.vim'
+Plugin 'Yggdroot/indentLine'
 
 call vundle#end()
 
@@ -68,10 +71,12 @@ let g:airline_powerline_fonts = 1
 let g:ale_linters = {
 \    'cpp': ['clang', 'clangcheck', 'cppcheck'],
 \    'c': ['clang', 'clangcheck', 'cppcheck'],
+\    'docker' : ['dockerfile_lint'],
 \    'python': ['pylint', 'flake8'],
 \    'java': ['checkstyle', 'javac'],
 \    'rust': ['cargo'],
-\    'ruby': ['ruby']
+\    'ruby': ['ruby'],
+\    'objc': ['clang']
 \    }
 
 let g:ale_completion_enabled = 1
@@ -80,6 +85,9 @@ let g:ale_set_balloons = 1
 let g:ale_set_highlights = 1
 let g:airline#extensions#ale#enabled = 1 
 let g:ale_echo_cursor = 1
+
+let g:ale_sign_error = '✖'
+let g:ale_sign_warning = '⚠️ '
 
 set statusline=%<%f\ %h%m%r%{kite#statusline()}%=%-14.(%l,%c%V%)\ %P 
 set statusline+=%{FugitiveStatusline()}
