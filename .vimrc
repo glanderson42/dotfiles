@@ -3,6 +3,7 @@ filetype off
 syntax on
 
 set number
+set relativenumber
 set cursorline
 set encoding=utf-8
 set autoread
@@ -50,6 +51,7 @@ Plugin 'w0rp/ale'
 Plugin 'junegunn/fzf.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-endwise'
 Plugin 'zivyangll/git-blame.vim'
 Plugin 'alvan/vim-closetag'
 Plugin 'pangloss/vim-javascript'
@@ -58,6 +60,7 @@ Plugin 'lyuts/vim-rtags'
 Plugin 'levelone/tequila-sunrise.vim'
 Plugin 'Rigellute/rigel'
 Plugin 'mhinz/vim-startify'
+Plugin 'Yggdroot/indentLine'
 
 call vundle#end()
 
@@ -83,11 +86,13 @@ let g:airline_theme = 'rigel'
 let g:ale_linters = {
 \    'cpp': ['clang', 'clangcheck', 'cppcheck'],
 \    'c': ['clang', 'clangcheck', 'cppcheck'],
-\    'python': ['kate'],
+\    'docker' : ['dockerfile_lint'],
+\    'python': ['pylint', 'flake8'],
 \    'java': ['checkstyle', 'javac'],
 \    'javascript' : ['eslint'],
 \    'rust': ['cargo'],
-\    'ruby': ['ruby']
+\    'ruby': ['ruby'],
+\    'objc': ['clang']
 \    }
 
 let g:ale_completion_enabled = 1
@@ -98,6 +103,8 @@ let g:airline#extensions#ale#enabled = 1
 let g:ale_echo_cursor = 1
 
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
+let g:ale_sign_error = '✖'
+let g:ale_sign_warning = '⚠️ '
 
 set statusline=%<%f\ %h%m%r%{kite#statusline()}%=%-14.(%l,%c%V%)\ %P 
 set statusline+=%{FugitiveStatusline()}
