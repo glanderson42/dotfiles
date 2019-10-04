@@ -46,12 +46,18 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'rakr/vim-one'
 Plugin 'dracula/vim'
 Plugin 'rhysd/vim-clang-format'
-Plugin 'kana/vim-operator-user'
 Plugin 'w0rp/ale'
 Plugin 'junegunn/fzf.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
 Plugin 'zivyangll/git-blame.vim'
+Plugin 'alvan/vim-closetag'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+Plugin 'lyuts/vim-rtags'
+Plugin 'levelone/tequila-sunrise.vim'
+Plugin 'Rigellute/rigel'
+Plugin 'mhinz/vim-startify'
 
 call vundle#end()
 
@@ -59,27 +65,39 @@ filetype plugin indent on
 
 "colorscheme onedark
 "let g:Powerline_symbols = 'unicode'
-let g:dracula_colorterm = 0
-color dracula
-let g:airline_theme='dracula'
+"let g:dracula_colorterm = 0
+"color dracula
+"let g:airline_theme='dracula'
+":colorscheme tequila-sunrise
+"""" enable 24bit true color
+set termguicolors
+
+"""" enable the theme
+syntax enable
+colorscheme rigel
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
+let g:rigel_airline = 1
+let g:airline_theme = 'rigel'
 
 let g:ale_linters = {
 \    'cpp': ['clang', 'clangcheck', 'cppcheck'],
 \    'c': ['clang', 'clangcheck', 'cppcheck'],
-\    'python': ['pylint', 'flake8'],
+\    'python': ['kate'],
 \    'java': ['checkstyle', 'javac'],
+\    'javascript' : ['eslint'],
 \    'rust': ['cargo'],
 \    'ruby': ['ruby']
 \    }
 
 let g:ale_completion_enabled = 1
 let g:ale_fix_on_save = 1
-let g:ale_set_balloons = 1
+let g:ale_set_balloons = 0
 let g:ale_set_highlights = 1
 let g:airline#extensions#ale#enabled = 1 
 let g:ale_echo_cursor = 1
+
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
 
 set statusline=%<%f\ %h%m%r%{kite#statusline()}%=%-14.(%l,%c%V%)\ %P 
 set statusline+=%{FugitiveStatusline()}
@@ -90,9 +108,6 @@ nnoremap [b :bprev<cr>
 
 nnoremap ]t :tabn<cr>
 nnoremap [t :tabp<cr>
-
-"nnoremap <C-]> :bnext<cr>
-"nnoremap <C-[> :bprev<cr>
 
 map <C-n> :NERDTreeToggle<CR>
 inoremap jj <Esc>
